@@ -42,47 +42,79 @@ import Header from './common/Header';
    
    render(){
      return(
-        
+        <View>
+     
+          <View style={styles.headerView}>
+                <View style={{paddingTop:16,paddingLeft:18}}>
+               <TouchableOpacity 
+                    onPress={()=>{this.props.navigation.navigate('login')}} >
+                   <Image 
+                   style={{height:13,width:19}} 
+                   source={require('../../images/back.png')}/>
+                   </TouchableOpacity>
+                 </View>
+                 <View style={ styles.headerStyle}>
+                    <Text style={styles.textStyle}>Create a new account</Text>
+                </View>
+                </View>
         <ScrollView style={styles.scroll}>
-        <Header name="Create a new account"/>
          <View style={{marginTop:30}}>
+         
+         <View style={styles.name}>
+                <Text style={styles.word}>Name</Text>
+            </View>
          <View>
            <TextInput style={styles.search}
-                            placeholder='Name '
+                            placeholder=' Enter Name '
                             placeholderTextColor='grey'
                             
                         />
          </View>
+         <View style={styles.name}>
+                <Text style={styles.word}>Email</Text>
+            </View>
            <View>
            <TextInput style={styles.search}
-                            placeholder='Email '
+                            placeholder=' Enter Email ID'
                             placeholderTextColor='grey'
                             value={this.state.email} onChangeText={(email) => this.setState({ email:email })}
                         />
          </View>
+         <View style={styles.name}>
+                <Text style={styles.word}>Roll No.</Text>
+            </View>
          <View>
            <TextInput style={styles.search}
-                            placeholder='Roll No'
+                            placeholder=' Enter Roll No'
                             placeholderTextColor='grey'
                         />
          </View>
+         <View style={styles.name}>
+                <Text style={styles.word}>Branch</Text>
+            </View>
          <View>
            <TextInput style={styles.search}
-                            placeholder='Branch'
+                            placeholder=' Enter Branch Name'
                             placeholderTextColor='grey'
                         />
          </View>
+         <View style={styles.name}>
+                <Text style={styles.word}>Password</Text>
+            </View>
          <View>
            <TextInput style={styles.search}
-                            placeholder='Password'
+                            placeholder=' Enter Password'
                             placeholderTextColor='grey'
                             secureTextEntry
                             value={this.state.password} onChangeText={(password) => this.setState({ password:password })}
                         />
          </View>
+         <View style={styles.name}>
+                <Text style={styles.word}>Confrim Password</Text>
+            </View>
          <View>
            <TextInput style={styles.search}
-                            placeholder='Confirm Password'
+                            placeholder='Re-enter Password'
                             placeholderTextColor='grey'
                         />
          </View>
@@ -99,37 +131,49 @@ import Header from './common/Header';
             
                  
         </ScrollView>
-       
+       </View>
       );
    }
  }
 
  const styles={
     scroll:{
-         flex:1,
+        //  flex:1,
         backgroundColor:'white',
         
+},
+
+name:{
+    marginLeft:30,
+    marginTop:0
+},
+word:{
+    fontSize:14,
+    fontWeight:'normal',
+    color:'black'
 },
 imageView:{
     alignItems:'center',
    
 },
-
-    headerText:{
-        fontSize:20,
-        fontWeight:'bold',
-        color:'#ed3510',
-        // fontStyle:'italic'
-    },
-    headerView:{
-       // margin:10,
-       marginLeft:10,
-       marginRight:10,
-       marginBottom:10,
-         marginTop:10,
-        alignItems:'center',
-        justifyContent:'center',
-    },
+headerView:{
+    backgroundColor:'#d85e38',
+    height: 43,
+    elevation:5,
+    flexDirection:'row'
+},
+textStyle : {
+    fontSize : 15,
+    color:'#fff',
+    fontWeight:'500'
+},
+headerStyle:{
+    paddingTop:13 ,
+    //  justifyContent:'center', 
+    //  alignItems:'center'
+    paddingLeft:80,
+     paddingRight:118
+},
     search: {
         fontSize: 14,
         margin: 8,
@@ -139,7 +183,8 @@ imageView:{
         marginTop: 2,
         backgroundColor: 'white',
         marginTop:15,
-        paddingLeft:10,
+       marginLeft:30,
+       marginRight:30
 
     },
     search1: {
@@ -168,16 +213,17 @@ imageView:{
     button: {
         flex: 1,
         borderWidth: 1,
-        borderRadius:5,
+        borderRadius:18,
          borderColor:'white',
-         marginLeft: 10,
-         marginRight: 10,
+         marginLeft: 80,
+         marginRight: 80,
          marginTop: 20,
-        backgroundColor:'#ed3510',
+        backgroundColor:'#d85e38',
         alignItems:'center',
         justifyContent:'center',
         paddingTop:10,
         paddingBottom:10,
+        marginBottom:80
         
        
     },
@@ -185,7 +231,7 @@ imageView:{
         flex: 1,
         borderWidth: 1,
         borderRadius:5,
-        borderColor:'#ed3510',
+        borderColor:'#d85e38',
          marginLeft: 10,
          marginRight: 10,
          marginTop: 15,
@@ -200,7 +246,7 @@ imageView:{
     },
     headerLeft:{
         fontWeight:'400',
-        color:'#ed3510',
+        color:'#d85e38',
         fontSize:15,
         marginTop:5
     },

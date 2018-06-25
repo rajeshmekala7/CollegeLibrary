@@ -8,7 +8,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
- import RootStack from '../../../Router'
+ import profile from '../../components/profile'
 
 
 export default class Header extends Component {
@@ -19,10 +19,10 @@ export default class Header extends Component {
              <View style={styles.contentView}>
              {/* <View>
                  <TouchableOpacity
-                 onPress={() => this.props.navigation.navigate('Draw')} >
+                 onPress={() => this.props.navigation.navigate('profile')} >
              <Image
              style={styles.imageStyle}
-             source={require('../../../images/menu1.jpg')}
+             source={require('../../../images/menu.png')}
              />
              </TouchableOpacity>
            </View> */}
@@ -38,7 +38,7 @@ export default class Header extends Component {
 }
 const styles={
     headerView:{
-        backgroundColor:'#d83813',
+        backgroundColor:'#d85e38',
         height: 43,
         elevation:5,
         

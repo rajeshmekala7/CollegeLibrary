@@ -24,14 +24,14 @@ import {
 const styles={
     
     cardStyle: {
-        borderWidth: 1,
-        borderRadius: 2,
+        borderWidth:0,
+        borderRadius: 3,
         borderColor: '#ddd',
-        borderBottomWidth: 1,
-        elevation: 1,
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10,
+        borderBottomWidth: 0.5,
+        elevation: 2,
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 7,
         paddingBottom:10,
         backgroundColor: 'white'
     },

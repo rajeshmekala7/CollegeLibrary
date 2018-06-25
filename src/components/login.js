@@ -20,7 +20,7 @@ import SplashScreen from 'react-native-splash-screen'
 
   export default class login extends Component {
 
-    componentDidMount() {
+   componentWillMount() {
     	// do stuff while splash screen is shown
         // After having done stuff (such as async tasks) hide the splash screen
         SplashScreen.hide();
@@ -118,7 +118,7 @@ imageView:{
     headerText:{
         fontSize:20,
         fontWeight:'bold',
-        color:'#ed3510',
+        color:'#d85e38',
         // fontStyle:'italic'
     },
     headerView:{
@@ -172,7 +172,7 @@ imageView:{
          marginLeft: 10,
          marginRight: 10,
          marginTop: 10,
-        backgroundColor:'#ed3510',
+        backgroundColor:'#d85e38',
         alignItems:'center',
         justifyContent:'center',
         paddingTop:10,
@@ -184,7 +184,7 @@ imageView:{
         flex: 1,
         borderWidth: 1,
         borderRadius:5,
-        borderColor:'#ed3510',
+        borderColor:'#d85e38',
          marginLeft: 10,
          marginRight: 10,
          marginTop: 15,
@@ -199,7 +199,7 @@ imageView:{
     },
     headerLeft:{
         fontWeight:'400',
-        color:'#ed3510',
+        color:'#d85e38',
         fontSize:15,
         marginTop:5
     },
@@ -231,3 +231,5 @@ imageView:{
          marginTop:108
      },
 }
+
+//keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000

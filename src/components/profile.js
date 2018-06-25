@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Text, TextInput, TouchableOpacity, View,Image} from 'react-native';
-import Header from '../components/common/Header';
+
 
 
 export default class Profile extends Component {
@@ -13,19 +13,21 @@ export default class Profile extends Component {
     render(){
         return(
     
-             <View   style={{backgroundColor:'white',paddingBottom:600}}>
-                 <Header name='Profile' />
-                 {/* <View>
-                 <TouchableOpacity
-                 onPress={() => this.props.navigation.navigate('Draw')} >
-             <Image
-             style={styles.imageStyle}
-             source={require('../../images/menu.png')}
-             />
-             </TouchableOpacity>
-           </View> */}
-                
-            
+             <View>
+                <View style={styles.headerView}>
+                <View style={{paddingTop:16,paddingLeft:18}}>
+               <TouchableOpacity 
+                    onPress={()=>{this.props.navigation.navigate('Home')}} >
+                   <Image 
+                   style={{height:13,width:19}} 
+                   source={require('../../images/back.png')}/>
+                   </TouchableOpacity>
+                 </View>
+                 <View style={ styles.headerStyle}>
+                    <Text style={styles.textStyle}>Profile</Text>
+                </View>
+                </View>
+            <View   style={{backgroundColor:'white',paddingBottom:600}}>
              <View style={styles.name}>
                 <Text style={styles.word}>Name</Text>
             </View>
@@ -122,7 +124,7 @@ export default class Profile extends Component {
               </Modal>
          </View>
 
-       <View>
+       {/* <View>
        <TouchableOpacity
               style={styles.button1}
                 onPress={() => {
@@ -130,12 +132,32 @@ export default class Profile extends Component {
                 }}>
                 <Text style={{fontSize:12,color:'white'}}>UPDATE</Text>
               </TouchableOpacity>
-           </View>
+           </View> */}
+      </View>
       </View>
         );
     }
 }
 const styles={
+    headerView:{
+        backgroundColor:'#d85e38',
+        height: 43,
+        elevation:5,
+        flexDirection:'row'
+    },
+    textStyle : {
+        fontSize : 15,
+        color:'#fff',
+        fontWeight:'500'
+        
+    },
+    headerStyle:{
+        paddingTop:13 ,
+        //  justifyContent:'center', 
+        //  alignItems:'center'
+        paddingLeft:118,
+         paddingRight:118
+    },
    
     name:{
          marginLeft:30,
@@ -170,7 +192,7 @@ const styles={
     change:{
         fontSize:14,
         fontWeight:'normal',
-        color:'#d83813'
+        color:'#d85e38'
     },
     button: {
         flex: 1,
@@ -180,7 +202,7 @@ const styles={
          marginLeft: 20,
          marginRight: 20,
          marginTop: 10,
-        backgroundColor:'#d83813',
+        backgroundColor:'#d85e38',
         alignItems:'center',
         justifyContent:'center',
         paddingTop:17,
@@ -194,7 +216,7 @@ const styles={
          marginLeft: 120,
          marginRight: 120,
          marginTop: 50,
-        backgroundColor:'#d83813',
+        backgroundColor:'#d85e38',
         alignItems:'center',
         justifyContent:'center',
         paddingTop:17,
