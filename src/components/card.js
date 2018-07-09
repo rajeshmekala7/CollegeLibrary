@@ -17,9 +17,9 @@ export default class student extends Component {
 
     
     state={
-        date1:null,
-        date2:null,
-        date3:null
+        date1:'',
+        date2:'',
+        date3:''
     }
     
     ShowCurrentDate1=()=>{

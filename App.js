@@ -25,4 +25,4 @@ import RootStack from './Router'
  
 // })
 
-export default RootStack
+export default RootStack;

@@ -15,6 +15,7 @@ import student from './student';
 import login from './login';
 import RootStack from './../../Router';
 import Header from './common/Header';
+import axios from 'axios';
 
 
 
@@ -25,19 +26,40 @@ import Header from './common/Header';
         name:'',
         email: '',
         rollno:'',
+        branch:'',
+        phone:'',
         password: '',
-        confirmpassword:''      
+        confirmPassword:''    ,
+        phone:''  
      }
-    login(){
-        // if(this.state.email=="s" && this.state.password=="s")
-        // {
-           this.props.navigation.navigate('Router');
+    signup(){
+        console.log("hello");
+
+        let self = this;
+        axios.post('http://192.168.1.50:3000/user/register', {
+            name: this.state.name,
+            email: this.state.email,
+            rollno: this.state.rollno,
+            branch: this.state.branch,
+            phone: this.state.phone,
+            password: this.state.password,
+            confirmPassword: this.state.confirmPassword,
+      })
+      .then(function (response) {
+        console.log(response);
+        if(response.data.status)
+        {
+         self.props.navigation.navigate('login');
         }
-    //     else
-    //     {
-    //         alert('you have entered incorrect mail id or password')
-    //     }
-    // }
+        else{
+            alert(response.data.message)
+        } 
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    }
    
    
    render(){
@@ -67,7 +89,7 @@ import Header from './common/Header';
            <TextInput style={styles.search}
                             placeholder=' Enter Name '
                             placeholderTextColor='grey'
-                            
+                            value={this.state.name} onChangeText={(name) => this.setState({ name:name })}
                         />
          </View>
          <View style={styles.name}>
@@ -87,6 +109,7 @@ import Header from './common/Header';
            <TextInput style={styles.search}
                             placeholder=' Enter Roll No'
                             placeholderTextColor='grey'
+                            value={this.state.rollno} onChangeText={(rollno) => this.setState({ rollno:rollno })}
                         />
          </View>
          <View style={styles.name}>
@@ -96,6 +119,17 @@ import Header from './common/Header';
            <TextInput style={styles.search}
                             placeholder=' Enter Branch Name'
                             placeholderTextColor='grey'
+                            value={this.state.branch} onChangeText={(branch) => this.setState({ branch:branch })}
+                        />
+         </View>
+         <View style={styles.name}>
+                <Text style={styles.word}>Phone No.</Text>
+            </View>
+         <View>
+           <TextInput style={styles.search}
+                            placeholder=' Enter Your Phone Number'
+                            placeholderTextColor='grey'
+                            value={this.state.phone} onChangeText={(phone) => this.setState({ phone:phone })}
                         />
          </View>
          <View style={styles.name}>
@@ -116,20 +150,24 @@ import Header from './common/Header';
            <TextInput style={styles.search}
                             placeholder='Re-enter Password'
                             placeholderTextColor='grey'
+                            secureTextEntry
+                            value={this.state.confirmPassword} onChangeText={(confirmPassword) => this.setState({ confirmPassword:confirmPassword })}
                         />
          </View>
           
          
          <View >
-         <TouchableOpacity  style={styles.button} onPress={()=>this.login()}>
+         <TouchableOpacity  style={styles.button} onPress={()=>this.signup()}>
                   <View>
                       <Text  style={{fontSize:14,color:'white'}} >Signup</Text>
                   </View>
                         </TouchableOpacity>
-                    </View>
-                  </View>
-            
-                 
+         </View>
+        
+            </View>
+            <View style={{alignItems:'center',marginLeft:20,marginBottom:50,marginTop:15}}>
+         <Text style={{fontSize:14,color:'#d85e38'}}>Note: After Signingup a verfication link is sent to your mail.So, please verify your email and Signin.</Text>
+                  </View> 
         </ScrollView>
        </View>
       );
@@ -177,10 +215,10 @@ headerStyle:{
     search: {
         fontSize: 14,
         margin: 8,
-        height: 35,
+        height: 40,
         borderColor: '#666',
         borderRadius: 6,
-        marginTop: 2,
+        // marginTop: 1,
         backgroundColor: 'white',
         marginTop:15,
        marginLeft:30,
@@ -192,7 +230,7 @@ headerStyle:{
         marginTop: 8,
         marginLeft:8,
         marginRight:8,
-        marginBottom:2,
+       
         height: 35,
         borderColor: '#666',
         borderRadius: 6,
@@ -222,8 +260,8 @@ headerStyle:{
         alignItems:'center',
         justifyContent:'center',
         paddingTop:10,
-        paddingBottom:10,
-        marginBottom:80
+         paddingBottom:10,
+     
         
        
     },

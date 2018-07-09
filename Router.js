@@ -8,17 +8,16 @@ import {
   Button,Tap,ScrollView,TouchableOpacity,MenuButton
 } from 'react-native';
 
-import login from './src/components/login';
+import Login from './src/components/login';
 import student from './src/components/student';
-import profile from './src/components/profile';
+import Profile from './src/components/profile';
 import Signup from './src/components/signup';
+import Admin from './src/components/admin';
 import {DrawerItems,NavigationActions,createStackNavigator,createDrawerNavigator} from 'react-navigation';
 
 
 const Draw= createDrawerNavigator({
-  
-   
-        Home: {
+      Home: {
             screen: student,
             navigationOptions : {
               drawerLabel: 'Home',
@@ -33,18 +32,23 @@ const Draw= createDrawerNavigator({
               ),}
             
           },
+       
        'Student Profile':{
-            screen:profile,
+         
+            screen:Profile,
             navigationOptions : {
               drawerIcon: ({ tintColor }) => (
+              //  <TouchableOpacity onpress={()=>this.props.read()}>
                 <Image
                   source={require('./images/user1.png')}
                   style={{height:25,width:25}}
                 />
+              // </TouchableOpacity>        
               ),}
         },
+        
         Logout:{
-          screen:login,
+          screen:Login,
           navigationOptions:{
             drawerIcon:({tintColor}) => (
               <Image
@@ -53,9 +57,7 @@ const Draw= createDrawerNavigator({
               />
             )
           }
-        }
-        
-        
+        },     
     },
     {
       navigationOptions: {
@@ -113,13 +115,13 @@ const Draw= createDrawerNavigator({
 
 
 const RootStack= createStackNavigator({
-    login: {
-        screen: login,
+    Login: {
+        screen: Login,
       navigationOptions:{
         header:null
       },
        },
-       Router: { 
+       Home: { 
         screen: Draw,
        navigationOptions:{
          header:null,
